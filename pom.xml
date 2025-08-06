@@ -33,5 +33,36 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.3.0</version>
+                <executions>
+                    <execution>
+                        <id>spotbugs-generate-reports</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>spotbugs</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <effort>Default</effort>
+                    <threshold>Low</threshold>
+                    <includeTests>false</includeTests>
+                    <xmlOutput>true</xmlOutput>
+                    <xmlOutputDirectory>${session.executionRootDirectory}/spotbugs</xmlOutputDirectory>
+                    <outputFile>${xmlOutputDirectory}/${project.artifactId}-spotbugs.xml</outputFile>
+
+
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+
     </build>
 </project>
