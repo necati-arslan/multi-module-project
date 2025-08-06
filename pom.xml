@@ -54,9 +54,33 @@
                     <threshold>Low</threshold>
                     <includeTests>false</includeTests>
                     <xmlOutput>true</xmlOutput>
-                    <xmlOutputDirectory>${project.basedir}/spotbugs</xmlOutputDirectory>
-
+                    <spotbugsXmlOutputDirectory>${project.basedir}/spotbugs</spotbugsXmlOutputDirectory>
+                    <!-- Name each file after the module's artifactId -->
+                    <spotbugsXmlOutputFilename>${project.artifactId}-spotbugs.xml</spotbugsXmlOutputFilename>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>gather-spotbugs-reports</id>
+                        <phase>verify</phase>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${basedir}/spotbugs" />
+                                <copy todir="${basedir}/spotbugs" flatten="true">
+                                    <fileset dir="${basedir}">
+                                        <include name="**/spotbugs/*-spotbugs.xml" />
+                                    </fileset>
+                                </copy>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
