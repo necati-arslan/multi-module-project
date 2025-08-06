@@ -54,8 +54,7 @@
                     <threshold>Low</threshold>
                     <includeTests>false</includeTests>
                     <xmlOutput>true</xmlOutput>
-                    <xmlOutputDirectory>${session.executionRootDirectory}/spotbugs</xmlOutputDirectory>
-                    <outputFile>${xmlOutputDirectory}/${project.artifactId}-spotbugs.xml</outputFile>
+                    <xmlOutputDirectory>${session.executionRootDirectory}/spotbugs/${project.artifactId}</xmlOutputDirectory>
 
 
                 </configuration>
