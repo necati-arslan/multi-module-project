@@ -11,8 +11,5 @@
         <module name="module3-repository" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="multi-module-project" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

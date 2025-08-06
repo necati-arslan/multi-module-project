@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <mkdir dir="C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-project\module2-service/spotbugs" />
+    <copy flatten="true" todir="C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-project\module2-service/spotbugs">
+      <fileset dir="C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-project\module2-service">
+        <include name="**/spotbugs/*-spotbugs.xml" />
+      </fileset>
+    </copy>
+  </target>
+</project>
